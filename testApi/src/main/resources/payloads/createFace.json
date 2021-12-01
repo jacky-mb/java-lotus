@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "data":{
+    "id": "60f23212f8d36a0012e64716",
+    "name": "Hieu Tran",
+    "alias": {
+      "NextPay": "hieuth"
+    },
+    "images":[{"imageId": 1631009550291, "url": "/processed (5)-1626485236664.jpeg", "embedding": []}],
+    "numberId": 24,
+    "gender": 0,
+    "createdAt": 1628261502,
+    "merchantId": "60ee62aa434240001391b803",
+    "tags": ["dev"]
+  }
+}
