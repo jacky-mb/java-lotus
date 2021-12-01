@@ -21,6 +21,7 @@ public class LoginSteps extends HelpTask {
         driver.findElement(Pages.Login.USERNAME).sendKeys(data.get("email"));
         driver.findElement(Pages.Login.PASSWORD).sendKeys(data.get("password"));
     }
+
     public void verifyLoginResult(Map<String,String> result){
         driver.findElement(Pages.Login.BUTTON_LOGIN).click();
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'"+result.get("result")+"')]")));
