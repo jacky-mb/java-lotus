@@ -1,9 +1,8 @@
 Feature: Create new items
   I can create new face
-  Scenario Outline: Create new face successfully
-    Given I authentication with account merchant is thanglong, username is test, password is 1
-    When I create new face id with  face name <faceName> face path <pathFace> , gender <gender> tags <tags>
-    Then I can see status is true
+  Scenario : Create new location successfully
+    Given I create body with name NPVN
+    When  call API create location
+    Then Check location was created
 
-    Examples: example data test
 
