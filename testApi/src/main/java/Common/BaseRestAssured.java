@@ -2,6 +2,7 @@ package Common;
 
 import com.google.gson.JsonObject;
 import io.restassured.RestAssured;
+import io.restassured.http.Header;
 import io.restassured.path.json.JsonPath;
 
 import java.io.File;
@@ -11,28 +12,40 @@ import java.util.Map;
 public class BaseRestAssured {
     public static final String TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyI2MTI1YzEwOWMxZWM4YjAwMWI3Y2NlNzMiLCI2MTlmNThjMzk2M2NlYmUxMDIxZTlhNDUiLCI2MTI1YzBkY2MxZWM4YjAwMWI3Y2NlNmUiXSwiZ3JvdXBzIjpbXSwiX2lkIjoiNjFhODczNDlhYjFlMWMwMDE0MGIxNWIzIiwiZXhwaXJlZEF0IjoxNjcyNTA1OTk5MDAwLCJuYW1lIjoiYWRhc2RhcyIsImFwcGxpY2F0aW9uIjoiIiwibWVyY2hhbnRJZCI6IjYwZWU2MmFhNDM0MjQwMDAxMzkxYjgwMyIsInVpZCI6IjRlM2UxMGRmLWY4OTAtNDY4OC05ODhiLWM4YmY5YjVjOThkNSIsImFjdGl2YXRlZCI6MSwiY3JlYXRlZEJ5IjoiNjEzOTA1N2Y5YTdjMDUwMDEyZGY4MmY4IiwiY3JlYXRlZCI6MTYzODQyOTUxMzA2MiwiX192IjowLCJpYXQiOjE2Mzg0Mjk1MTMsImV4cCI6MTY3MjQ3MTExM30.ixPSOuqlyhUx8nl87HJJk2HcFDZRBCBMtyilmcb9dGw";
     public static final Map<String, String> HEADER = new HashMap<String, String>() {{
-        put("ContentType", "application/json");
+        put("Content-Type", "application/json");
         put("x-access-token", TOKEN);
     }};
-
-    public static JsonPath callPostMethod(String url, String body, File file) {
+/*post method*/
+    public static JsonPath callPostMethod(Map<String,?>headers,String url, String jsonBody, File file){
         return RestAssured.given()
-                .headers(HEADER)
-                .body(body)
+                .headers(headers)
+                .body(jsonBody)
                 .multiPart(file)
-                .basePath(url)
                 .when()
-                .post()
+                .post(url)
                 .then()
+                .log().all()
                 .extract()
                 .response()
                 .jsonPath();
     }
-
-    public static JsonPath callGetMethod(String url, Map<String, ?> param) {
+    public static JsonPath callPostMethod(Map<String,?>headers,String url, String jsonBody){
+        return RestAssured.given()
+                .headers(headers)
+                .body(jsonBody)
+                .when()
+                .post(url)
+                .then()
+                .log().all()
+                .extract()
+                .response()
+                .jsonPath();
+    }
+/*get method*/
+    public static JsonPath callGetMethod(Map<String,?>headers, String url, Map<String, ?> param) {
         return RestAssured.given()
                 .queryParams(param)
-                .headers(HEADER)
+                .headers(headers)
                 .baseUri(url)
                 .when()
                 .log().all()
@@ -42,10 +55,22 @@ public class BaseRestAssured {
                 .response()
                 .jsonPath();
     }
-
-    public static JsonPath callPutMethod(String url, JsonObject body, File file) {
+    public static JsonPath callGetMethod(Map<String,?> headers, String url){
+        return  RestAssured.given()
+                .headers(headers)
+                .baseUri(url)
+                .when()
+                .log().all()
+                .get()
+                .then()
+                .extract()
+                .response()
+                .jsonPath();
+    }
+/*put method*/
+    public static JsonPath callPutMethod(Map<String,?> headers, String url, String body, File file) {
         return RestAssured.given()
-                .headers(HEADER)
+                .headers(headers)
                 .body(body)
                 .multiPart(file)
                 .baseUri(url)
@@ -57,36 +82,43 @@ public class BaseRestAssured {
                 .response()
                 .jsonPath();
     }
-
-    public static void main(String[] args) {
-//        String url = "https://gateway-dev.nextcam.vn/dev-api/camera";
-//        Map<String, ?> param = new HashMap<String,Object>(){{
-//            put("page",1);
-//            put("perPage",1);
-//            put("filter","");
-//            put("fromDate","");
-//            put("toDate","");
-//            put("sort","");
-//        }};
-//        System.out.println(callGetMethod(url,param).prettyPrint());
-        /*upfile*/
-        String url = "https://cloud-upload-dev.nextcam.vn/upload";
-        File file = new File("src/main/resources/image/1.PNG");
-        String body = "{\"file\":\"file\"}";
-        JsonPath res = RestAssured.given()
-                .log().all()
-                .headers("Content-Type", "multipart/form-data")
+    public static JsonPath callPutMethod(Map<String,?> headers, String url, String body) {
+        return RestAssured.given()
+                .headers(headers)
                 .body(body)
-                .multiPart("file",file)
+                .baseUri(url)
                 .when()
                 .log().all()
-                .post(url)
+                .post()
                 .then()
-                .log().all()
                 .extract()
                 .response()
                 .jsonPath();
-        System.out.println(res.prettyPrint());
-
+    }
+    /*delete method*/
+    public static JsonPath callDeleteMethod(Map<String,?> headers, String url, String body){
+        return RestAssured.given()
+                .headers(headers)
+                .body(body)
+                .baseUri(url)
+                .when()
+                .log().all()
+                .delete()
+                .then()
+                .extract()
+                .response()
+                .jsonPath();
+    }
+    public static JsonPath callDeleteMethod(Map<String,?> headers, String url){
+        return RestAssured.given()
+                .headers(headers)
+                .baseUri(url)
+                .when()
+                .log().all()
+                .delete()
+                .then()
+                .extract()
+                .response()
+                .jsonPath();
     }
 }

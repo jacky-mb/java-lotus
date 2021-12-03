@@ -9,6 +9,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import net.serenitybdd.core.Serenity;
+import org.junit.Assert;
 
 import static net.serenitybdd.core.Serenity.sessionVariableCalled;
 import static net.serenitybdd.core.Serenity.setSessionVariable;
@@ -28,18 +30,13 @@ public class CreateLocation {
     @When("Call API")
     public void callAPI() {
         String body = sessionVariableCalled("body");
-        System.out.println(body);
-        System.exit(1);
-       JsonPath res =  BaseRestAssured.callPostMethod(sessionVariableCalled("endpoint").toString(),body,null);
-       setSessionVariable(res);
-        System.exit(1);
+       JsonPath res =  BaseRestAssured.callPostMethod(BaseRestAssured.HEADER,sessionVariableCalled("endpoint"),body);
+       Serenity.setSessionVariable("res").to(res);
     }
 
     @Then("Check status call ok, location was created")
     public void veryfiRequest() {
         JsonPath resp = sessionVariableCalled("res");
-        System.out.println(resp);
-        System.exit(1);
-//        Assert.assertTrue(resp.get("ok"));
+        Assert.assertTrue(resp.get("ok"));
     }
 }
