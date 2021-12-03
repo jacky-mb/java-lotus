@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.path.json.JsonPath;
+import net.serenitybdd.core.Serenity;
 
 import java.io.File;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public class BaseRestAssured {
     }};
 /*post method*/
     public static JsonPath callPostMethod(Map<String,?>headers,String url, String jsonBody, File file){
-        return RestAssured.given()
+        JsonPath response = RestAssured.given()
                 .headers(headers)
                 .body(jsonBody)
                 .multiPart(file)
@@ -28,9 +29,11 @@ public class BaseRestAssured {
                 .extract()
                 .response()
                 .jsonPath();
+        Serenity.setSessionVariable("resp").to(response);
+        return response;
     }
     public static JsonPath callPostMethod(Map<String,?>headers,String url, String jsonBody){
-        return RestAssured.given()
+        JsonPath response = RestAssured.given()
                 .headers(headers)
                 .body(jsonBody)
                 .when()
@@ -40,10 +43,12 @@ public class BaseRestAssured {
                 .extract()
                 .response()
                 .jsonPath();
+        Serenity.setSessionVariable("resp").to(response);
+        return response;
     }
 /*get method*/
     public static JsonPath callGetMethod(Map<String,?>headers, String url, Map<String, ?> param) {
-        return RestAssured.given()
+        JsonPath response = RestAssured.given()
                 .queryParams(param)
                 .headers(headers)
                 .baseUri(url)
@@ -51,12 +56,15 @@ public class BaseRestAssured {
                 .log().all()
                 .get()
                 .then()
+//                .log().all()
                 .extract()
                 .response()
                 .jsonPath();
+        Serenity.setSessionVariable("resp").to(response);
+        return response;
     }
     public static JsonPath callGetMethod(Map<String,?> headers, String url){
-        return  RestAssured.given()
+        JsonPath response =  RestAssured.given()
                 .headers(headers)
                 .baseUri(url)
                 .when()
@@ -66,10 +74,12 @@ public class BaseRestAssured {
                 .extract()
                 .response()
                 .jsonPath();
+        Serenity.setSessionVariable("resp").to(response);
+        return response;
     }
 /*put method*/
     public static JsonPath callPutMethod(Map<String,?> headers, String url, String body, File file) {
-        return RestAssured.given()
+        JsonPath response = RestAssured.given()
                 .headers(headers)
                 .body(body)
                 .multiPart(file)
@@ -81,9 +91,11 @@ public class BaseRestAssured {
                 .extract()
                 .response()
                 .jsonPath();
+        Serenity.setSessionVariable("resp").to(response);
+        return response;
     }
     public static JsonPath callPutMethod(Map<String,?> headers, String url, String body) {
-        return RestAssured.given()
+        JsonPath response = RestAssured.given()
                 .headers(headers)
                 .body(body)
                 .baseUri(url)
@@ -94,10 +106,12 @@ public class BaseRestAssured {
                 .extract()
                 .response()
                 .jsonPath();
+        Serenity.setSessionVariable("resp").to(response);
+        return response;
     }
     /*delete method*/
     public static JsonPath callDeleteMethod(Map<String,?> headers, String url, String body){
-        return RestAssured.given()
+        JsonPath response =  RestAssured.given()
                 .headers(headers)
                 .body(body)
                 .baseUri(url)
@@ -108,17 +122,22 @@ public class BaseRestAssured {
                 .extract()
                 .response()
                 .jsonPath();
+        Serenity.setSessionVariable("resp").to(response);
+        return response;
     }
     public static JsonPath callDeleteMethod(Map<String,?> headers, String url){
-        return RestAssured.given()
+        JsonPath response = RestAssured.given()
                 .headers(headers)
                 .baseUri(url)
                 .when()
                 .log().all()
                 .delete()
                 .then()
+                .log().all()
                 .extract()
                 .response()
                 .jsonPath();
+        Serenity.setSessionVariable("resp").to(response);
+        return response;
     }
 }

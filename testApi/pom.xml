@@ -15,7 +15,6 @@
         <serenity.version>3.0.5</serenity.version>
         <serenity.cucumber.version>2.6.0</serenity.cucumber.version>
         <serenity.maven.version>2.0.17</serenity.maven.version>
-
         <junit.version>4.13.2</junit.version>
     </properties>
 

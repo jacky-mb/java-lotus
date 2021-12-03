@@ -12,6 +12,7 @@ import io.restassured.path.json.JsonPath;
 import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
 
+import static io.restassured.path.json.JsonPath.*;
 import static net.serenitybdd.core.Serenity.sessionVariableCalled;
 import static net.serenitybdd.core.Serenity.setSessionVariable;
 
@@ -27,16 +28,15 @@ public class CreateLocation {
         setSessionVariable("body").to(jsonBody.toString());
     }
 
-    @When("Call API")
+    @When("Call API create location")
     public void callAPI() {
         String body = sessionVariableCalled("body");
        JsonPath res =  BaseRestAssured.callPostMethod(BaseRestAssured.HEADER,sessionVariableCalled("endpoint"),body);
-       Serenity.setSessionVariable("res").to(res);
     }
 
     @Then("Check status call ok, location was created")
     public void veryfiRequest() {
-        JsonPath resp = sessionVariableCalled("res");
-        Assert.assertTrue(resp.get("ok"));
+        JsonPath resp = sessionVariableCalled("resp");
+        Assert.assertNotNull(resp.get("data._id"));
     }
 }
