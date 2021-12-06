@@ -52,25 +52,6 @@ public class DataProviders {
                     Cell c = row.getCell(i);
                     String cellValue = df.formatCellValue(c,evaluator);
                     map.put((header.get(i)), cellValue);
-//                    if (c != null) {
-//                        switch (c.getCellType()) {
-//                            case STRING:
-//                                map.put(header.get(i), c.getStringCellValue().trim());
-//                                break;
-//                            case NUMERIC:
-//                                DataFormatter df = new DataFormatter();
-//                                String cellValue = df.formatCellValue(c,evaluator);
-//                                map.put((header.get(i)), cellValue);
-//                                break;
-//                            case BOOLEAN:
-//                                map.put(header.get(i), c.getBooleanCellValue());
-//                                break;
-//                            default:
-//                                break;
-//                        }
-//                    } else {
-//                        map.put(header.get(i), "");
-//                    }
                 }
                 result.add(map);
             }

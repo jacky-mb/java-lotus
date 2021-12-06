@@ -4,12 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b095f25-2741-4710-92a9-3bb9bf347d1f" name="Changes" comment="" />
+    <list default="true" id="4b095f25-2741-4710-92a9-3bb9bf347d1f" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/../cucumberSerenity/src/test/resources/serenity.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/features/restful-booker/createBooking.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cucumberSerenity/src/test/resources/serenity.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../output/Test Results - Feature__DeleteLocation.html" beforeDir="false" afterPath="$PROJECT_DIR$/../output/Test Results - Feature__DeleteLocation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../output/Test Results - Scenario__Call_api_scenario.html" beforeDir="false" afterPath="$PROJECT_DIR$/../output/Test Results - Scenario__Call_api_scenario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Helpers/DataProviders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Helpers/DataProviders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testApi/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testApi/src/main/java/Common/BaseRestAssured.java" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/src/main/java/Common/BaseRestAssured.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testApi/src/main/java/Common/BodyJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/src/main/java/Common/BodyJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testApi/src/main/java/stepsdefinitions/restfulBooker/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/src/main/java/stepsdefinitions/restfulBooker/login/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testApi/target/classes/Common/BaseRestAssured$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/target/classes/Common/BaseRestAssured$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testApi/target/classes/Common/BaseRestAssured.class" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/target/classes/Common/BaseRestAssured.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testApi/target/classes/Common/BodyJson.class" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/target/classes/Common/BodyJson.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testApi/target/classes/stepsdefinitions/restfulBooker/login/GetBooker.class" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/target/classes/stepsdefinitions/restfulBooker/login/GetBooker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testApi/target/classes/stepsdefinitions/restfulBooker/login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/../testApi/target/classes/stepsdefinitions/restfulBooker/login/Login.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$/output" openResultsInEditor="true" userTempatePath="" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -17,7 +34,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="21fPEvO0YD04VTlKv9CAg02gLkC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,17 +48,33 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testApi" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.36091954" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java-lotus\seleniumTestNG\src\test\resources\_data" />
       <recent name="D:\seleniumTestNG" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Database">
+    <configuration name="Database" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Helpers.Database" />
+      <module name="seleniumTestNG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Helpers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -43,6 +82,41 @@
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateEvents.createNewEvent" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="seleniumTestNG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestCase.Events.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestCase.Events" />
+      <option name="MAIN_CLASS_NAME" value="TestCase.Events.CreateEvents" />
+      <option name="METHOD_NAME" value="createNewEvent" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Login" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="seleniumTestNG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestCase.Login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestCase.Login" />
+      <option name="MAIN_CLASS_NAME" value="TestCase.Login.Login" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -67,6 +141,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Database" />
+        <item itemvalue="TestNG.CreateEvents.createNewEvent" />
+        <item itemvalue="TestNG.Login" />
         <item itemvalue="TestNG.Login.login" />
       </list>
     </recent_temporary>
@@ -81,5 +158,21 @@
       <updated>1638329061816</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
