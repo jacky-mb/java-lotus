@@ -1,15 +1,14 @@
-package Suite;
+package TestRunner;
+
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.CucumberSerenityRunner;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberSerenityRunner.class)
 @CucumberOptions(
-        features = "features/CreateNewEvent.feature",
-        tags = "@feature=createEvent",
-        glue = {"stepdefinitions/AddEvent"}
+        features = "features/CreateNewTask.feature",
+        tags = "@feature=createNewTask",
+        glue = "stepdefinitions/AddTask"
 )
-public class AddEventSuite {
-
+public class AddTask {
 }
-
