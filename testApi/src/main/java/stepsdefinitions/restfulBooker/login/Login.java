@@ -26,7 +26,7 @@ public class Login {
     public void callApi(){
         String url = Config.RestfulBook.BASE_URL+"auth";
         String body = Serenity.sessionVariableCalled("body");
-        JsonPath jsonPath = BaseRestAssured.callPostMethod(Config.RestfulBook.HEADER,url,body);
+        BaseRestAssured.callPostMethod(Config.RestfulBook.HEADER,url,body);
     }
     @Then("Check api return token field")
     public void checkLoginSuccessfully(){

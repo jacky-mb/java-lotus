@@ -1,8 +1,6 @@
 package Common;
 
-import com.google.gson.JsonObject;
 import io.restassured.RestAssured;
-import io.restassured.http.Header;
 import io.restassured.path.json.JsonPath;
 import net.serenitybdd.core.Serenity;
 
