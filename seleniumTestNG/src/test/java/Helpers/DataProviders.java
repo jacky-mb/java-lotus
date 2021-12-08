@@ -1,5 +1,5 @@
 package Helpers;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.cucumber.java.it.Ma;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -9,16 +9,18 @@ import org.testng.Assert;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Struct;
 import java.util.*;
 
 public class DataProviders {
-    public DataProviders(){
+    public DataProviders() {
         super();
     }
-    public static Iterator<Object[]> parseExcel(String pathFile, String sheetName) throws IOException {
+
+    public static List<HashMap<String, Object>> parseExcel(String pathFile, String sheetName) throws IOException {
         File myFile = new File(pathFile);
         FileInputStream fis = new FileInputStream(myFile);
-        List<HashMap<Object, Object>> result = new ArrayList<HashMap<Object, Object>>();
+        List<HashMap<String, Object>> result = new ArrayList<>();
         XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
         /*Get index sheet by shee name */
         int numberSheet = myWorkBook.getNumberOfSheets();
@@ -30,7 +32,7 @@ public class DataProviders {
                 indexSheet = i;
             }
         }
-        Assert.assertTrue(flag, "Sheet name không tồn tại trong file");
+        Assert.assertTrue(flag, "Sheet not found!");
         XSSFSheet mySheet = myWorkBook.getSheetAt(indexSheet);
         FormulaEvaluator evaluator = myWorkBook.getCreationHelper().createFormulaEvaluator();
         DataFormatter df = new DataFormatter();
@@ -41,7 +43,7 @@ public class DataProviders {
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
             Iterator<Cell> cellIterator = row.cellIterator();
-            HashMap<Object, Object> map = new HashMap<>();
+            HashMap<String, Object> map = new HashMap<>();
             if (countRow == 0) {
                 while (cellIterator.hasNext()) {
                     Cell cell = cellIterator.next();
@@ -50,21 +52,42 @@ public class DataProviders {
             } else {
                 for (int i = 0; i < header.size(); i++) {
                     Cell c = row.getCell(i);
-                    String cellValue = df.formatCellValue(c,evaluator);
+                    String cellValue = df.formatCellValue(c, evaluator);
                     map.put((header.get(i)), cellValue);
                 }
                 result.add(map);
             }
             countRow++;
         }
-        Collection<Object[]> dp = new ArrayList<Object[]>();
-        for(Map<Object,Object> map:result){
-            dp.add(new Object[]{map});
-        }
-        return dp.iterator();
+        return result;
     }
-    public Collection<Object[]> filters(List<Map<Object,Object>> map){
 
-        return null;
+    public static List<Map<String, Object>> filters(List<HashMap<String, Object>> data, Map<String, Object> filter){
+        List<Map<String, Object>> output = new ArrayList<>();
+
+        for (Map.Entry<String, Object> entry : filter.entrySet()) {
+            for (int i = 0; i < data.size(); i++) {
+                if (data.get(i).get(entry.getKey()).equals(String.valueOf(entry.getValue()))) {
+                    output.add(data.get(i));
+                }
+            }
+        }
+        return output;
     }
+
+
+    public static void main(String[] args) throws IOException {
+
+//        String file = "src/test/resources/_data/demo.xlsx";
+//        String sheetName = "loginncc";
+//        List<HashMap<String, Object>> list = parseExcel(file, sheetName);
+//        Map<String, Object> filter = new HashMap<String, Object>() {{
+//            put("index", 1);
+//        }};
+//        List<Map<String, Object>> lists = filters(list, filter);
+//        System.out.println(lists);
+
+
+    }
+
 }

@@ -15,28 +15,28 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class CreateEvents {
-    public WebDriver driver;
-    public CreateEventsSteps createEventsSteps ;
-    @BeforeMethod
-    public void setUp(){
-        driver = new Drivers("chrome").getDriver();
-        createEventsSteps = new CreateEventsSteps(driver);
-    }
-    @Test(dataProvider = "data")
-    public void createNewEvent(Map<String, String> map) throws InterruptedException {
-        createEventsSteps.openFormInputEvents();
-        createEventsSteps.fillFields(map);
-        Thread.sleep(100000);
-    }
-    @DataProvider(name = "data")
-    protected Iterator<Object[]> dp() throws IOException {
-        String path = "src/test/resources/_data/Events.xlsx";
-        String sheetName = "create event";
-        return DataProviders.parseExcel(path,sheetName);
-    }
-    @AfterMethod
-    public void tearDown(){
-        createEventsSteps.driver.quit();
-    }
-}
+//public class CreateEvents {
+//    public WebDriver driver;
+//    public CreateEventsSteps createEventsSteps ;
+//    @BeforeMethod
+//    public void setUp(){
+//        driver = new Drivers("chrome").getDriver();
+//        createEventsSteps = new CreateEventsSteps(driver);
+//    }
+//    @Test(dataProvider = "data")
+//    public void createNewEvent(Map<String, String> map) throws InterruptedException {
+//        createEventsSteps.openFormInputEvents();
+//        createEventsSteps.fillFields(map);
+//        Thread.sleep(100000);
+//    }
+//    @DataProvider(name = "data")
+//    protected Iterator<Object[]> dp() throws IOException {
+//        String path = "src/test/resources/_data/Events.xlsx";
+//        String sheetName = "create event";
+//        return DataProviders.parseExcel(path,sheetName);
+//    }
+//    @AfterMethod
+//    public void tearDown(){
+//        createEventsSteps.driver.quit();
+//    }
+//}
