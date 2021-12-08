@@ -1,10 +1,8 @@
 package Helpers;
 
+import com.beust.jcommander.ParameterException;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.actions.selectactions.SelectByIndexFromBy;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,54 +10,89 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class HelpTask {
-    public   WebDriver driver;
-    public   WebDriverWait driverWait;
-    public   Actor actor = Actor.named("actor");
+    public WebDriver driver;
+    public WebDriverWait driverWait;
+    public Actor actor = Actor.named("actor");
     public long timeOut = 10;
-    public  static JavascriptExecutor executorJs;
+    public JavascriptExecutor executorJs;
+
     public void setTimeOut(long timeOut) {
         driverWait.withTimeout(Duration.ofSeconds(timeOut));
 
     }
 
-    public HelpTask(WebDriver drivers) {
-        driver = drivers;
+    public HelpTask() {
+        driver = new Drivers("chrome").getDriver();
         driverWait = new WebDriverWait(driver, timeOut);
         executorJs = (JavascriptExecutor) driver;
     }
-    public  void fillField(String selector, String value){
-        driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(selector)));
-        driver.findElement(By.cssSelector(selector)).sendKeys(value);
-    }
-    public  void click(String selector){
-        driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(selector)));
-        driver.findElement(By.cssSelector(selector)).click();
+
+    public WebElement findWebElement(Object s) {
+        String type = s.getClass().getSimpleName();
+        if (!type.equals("String") && !type.contains("By")) throw new ParameterException("Not match type selector");
+        WebElement e = null;
+        try {
+            if (type.equals("String")) {
+                e = driver.findElement(By.cssSelector((String) s));
+            } else {
+                e = driver.findElement((By) s);
+            }
+        } catch (NoSuchElementException | ParameterException ex) {
+            ex.printStackTrace();
+        }
+        return e;
     }
 
-    public void waitForText(String text){
-        driverWait.until(ExpectedConditions.textToBe(By.xpath("//*[contains(text(),'"+text+"']"),text));
+    public void fillField(Object selector, String value) {
+        WebElement e = findWebElement(selector);
+        e.sendKeys(value);
     }
-    public void waitForElement(String selector){
-        driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(selector)));
+
+    public void click(Object selector) {
+        WebElement e = findWebElement(selector);
+        e.click();
     }
-    public  void checkBox(String selector,boolean option){
-        boolean isChecked = (boolean) executorJs.executeScript("return $("+selector+").is(\":checked\")");
-        if(isChecked){
-            if(option){
+
+    public void waitForText(String text) {
+        driverWait.until(ExpectedConditions.invisibilityOfElementWithText(By.xpath("//*[contains(text(),'" + text + "')]"), text));
+    }
+
+    public void waitForElement(Object selector) {
+        String type = selector.getClass().getSimpleName();
+        if (type.equals("String")) {
+            driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector((String) selector)));
+        } else {
+            driverWait.until(ExpectedConditions.visibilityOfElementLocated((By) selector));
+        }
+    }
+
+    public void checkBox(Object selector, boolean option) {
+        boolean isChecked = (boolean) executorJs.executeScript("return $(" + selector + ").is(\":checked\")");
+        if (isChecked) {
+            if (option) {
                 /*no action*/
-            }else{
+            } else {
                 this.click(selector);
             }
-        }else{
-            if(option){
+        } else {
+            if (option) {
                 this.click(selector);
-            }else{
+            } else {
                 /*no action*/
             }
         }
     }
-    public void selectOption(String selector, String value){
-        Select s = new Select(driver.findElement(By.cssSelector(selector)));
+
+    public void sleep(long second) {
+        try {
+            Thread.sleep(second * 1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void selectOption(Object selector, String value) {
+        Select s = new Select(findWebElement(selector));
         s.selectByValue(value);
     }
 }

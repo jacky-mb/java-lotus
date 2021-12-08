@@ -1,6 +1,7 @@
 @feature=action
-  Feature: test action for HelperTask
-    Scenario:
-      Given I go to page
-      When I fill field data
-      Then I see Đăng nhập thành công
+Feature: test action for HelperTask
+
+  Scenario: Test login success
+    Given I go to pageee
+    When I fill field dataaa
+    Then I seeeee Đăng nhập thành công

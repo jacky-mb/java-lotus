@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.Pages;
 
 public class AddEventTask extends HelpTask {
-    public AddEventTask(WebDriver drivers) {
-        super(drivers);
+    public AddEventTask() {
+        super();
     }
     public void login(String email, String password) {
         actor.attemptsTo(Open.url("https://demoauto.xyz/signin"));

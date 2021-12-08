@@ -21,8 +21,7 @@ public class AddEventSteps {
     public static AddEventTask eventTask;
     @Before
     public void setStage() {
-        driver =  new Drivers("chrome").getDriver();
-        eventTask = new AddEventTask(driver);
+        eventTask = new AddEventTask();
         eventTask.actor.can(BrowseTheWeb.with(driver));
     }
 

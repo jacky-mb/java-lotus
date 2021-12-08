@@ -9,7 +9,5 @@ import org.junit.runner.RunWith;
         tags = "@feature=action",
         glue = {"stepdefinitions/test"}
 )
-
-
 public class testactionRuner {
 }
