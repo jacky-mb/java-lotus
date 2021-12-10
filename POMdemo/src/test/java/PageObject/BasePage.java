@@ -1,10 +1,9 @@
 package PageObject;
 
 import Helpers.Drivers;
+import com.beust.jcommander.ParameterException;
 import net.serenitybdd.screenplay.Actor;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,8 +12,6 @@ public class BasePage {
     public  WebDriver driver;
     public  WebDriverWait driverWait;
     public long timeOut = 10;
-    public  JavascriptExecutor executorJs;
-
     public  void fillField(By locator, Object value){
         driver.findElement(locator).sendKeys(String.valueOf(value));
     }
@@ -30,22 +27,14 @@ public class BasePage {
         (new WebDriverWait(driver,timeOut)).until(ExpectedConditions.visibilityOfElementLocated(selector));
     }
     public void checkBox(By selector, boolean option) {
-        boolean isChecked = (boolean) executorJs.executeScript("return $(" + selector + ").is(\":checked\")");
-        if (isChecked) {
-            if (option) {
-                /*no action*/
-            } else {
-                this.click(selector);
-            }
-        } else {
-            if (option) {
-                this.click(selector);
-            } else {
-                /*no action*/
-            }
+        boolean isChecked = driver.findElement(selector).isSelected();
+        if(option != isChecked){
+            click(selector);
         }
     }
-
+    public Object executeJs(String script,Object...var){
+        return ((JavascriptExecutor)driver).executeScript(script,var);
+    }
     public void sleep(long second) {
         try {
             Thread.sleep(second * 1000);
@@ -53,5 +42,19 @@ public class BasePage {
             e.printStackTrace();
         }
     }
-
+    public WebElement findWebElement(Object s) {
+        String type = s.getClass().getSimpleName();
+        if (!type.equals("String") && !type.contains("By")) throw new ParameterException("Not match type selector");
+        WebElement e = null;
+        try {
+            if (type.equals("String")) {
+                e = driver.findElement(By.cssSelector((String) s));
+            } else {
+                e = driver.findElement((By) s);
+            }
+        } catch (NoSuchElementException | ParameterException ex) {
+            ex.printStackTrace();
+        }
+        return e;
+    }
 }

@@ -5,37 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b2a6e95-ad18-450f-a599-57a9ac3af10c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Helpers/DataProviders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Helpers/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Helpers/Drivers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Helpers/HelpTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PageObject/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PageObject/EventPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PageObject/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PageObject/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Repository/Locator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestCase/CreateEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/_data/Events.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/_data/demo.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/driver/chrome/chromedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/driver/chrome/msedgedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/CreateEventPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/LoginPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../output/Test Results - CreateEvent_createEvent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Helpers/DataProviders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Helpers/DataProviders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Helpers/HelpTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Helpers/HelpTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/EventPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/EventPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestCase/CreateEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestCase/CreateEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/_data/Events.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/_data/Events.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Helpers/DataProviders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Helpers/DataProviders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Helpers/HelpTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Helpers/HelpTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PageObject/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PageObject/BasePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PageObject/EventPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PageObject/EventPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestCase/CreateEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestCase/CreateEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/_data/Events.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/_data/Events.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../seleniumTestNG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/Helpers/HelpTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/Helpers/HelpTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/Repository/Locators.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/Repository/Locators.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/TestCase/Events/CreateEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/TestCase/Events/CreateEvents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/TestCase/Login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/TestCase/Login/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/Pages.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/Repository/Locators.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/CreateEventPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/CreateEventPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/pages/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/stepdefinitions/Events/CreateEventsSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/stepdefinitions/Events/CreateEventsSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/stepdefinitions/Login/LoginSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/../seleniumTestNG/src/test/java/stepdefinitions/Login/LoginSteps.java" afterDir="false" />
     </list>
@@ -44,6 +37,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$/../output" openResultsInEditor="true" userTempatePath="" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -66,7 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SerenityBasic" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cucumberSerenity" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -157,5 +151,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

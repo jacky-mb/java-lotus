@@ -13,15 +13,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-public class DataProviders {
-    public DataProviders() {
-        super();
-    }
 
-    public static List<HashMap<String, Object>> parseExcel(String pathFile, String sheetName) throws IOException {
+public class DataProviders {
+    public static Iterator<Object[]> parseExcel(String pathFile, String sheetName) throws IOException {
         File myFile = new File(pathFile);
         FileInputStream fis = new FileInputStream(myFile);
-        List<HashMap<String, Object>> result = new ArrayList<>();
+        List<HashMap<Object, Object>> result = new ArrayList<HashMap<Object, Object>>();
         XSSFWorkbook myWorkBook = new XSSFWorkbook(fis);
         /*Get index sheet by shee name */
         int numberSheet = myWorkBook.getNumberOfSheets();
@@ -33,7 +30,7 @@ public class DataProviders {
                 indexSheet = i;
             }
         }
-        Assert.assertTrue(flag, "Sheet not found!");
+        Assert.assertTrue(flag, "Sheet name không tồn tại trong file");
         XSSFSheet mySheet = myWorkBook.getSheetAt(indexSheet);
         FormulaEvaluator evaluator = myWorkBook.getCreationHelper().createFormulaEvaluator();
         DataFormatter df = new DataFormatter();
@@ -44,7 +41,7 @@ public class DataProviders {
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
             Iterator<Cell> cellIterator = row.cellIterator();
-            HashMap<String, Object> map = new HashMap<>();
+            HashMap<Object, Object> map = new HashMap<>();
             if (countRow == 0) {
                 while (cellIterator.hasNext()) {
                     Cell cell = cellIterator.next();
@@ -55,40 +52,49 @@ public class DataProviders {
                     Cell c = row.getCell(i);
                     String cellValue = df.formatCellValue(c, evaluator);
                     map.put((header.get(i)), cellValue);
+//                    if (c != null) {
+//                        switch (c.getCellType()) {
+//                            case STRING:
+//                                map.put(header.get(i), c.getStringCellValue().trim());
+//                                break;
+//                            case NUMERIC:
+//                                DataFormatter df = new DataFormatter();
+//                                String cellValue = df.formatCellValue(c,evaluator);
+//                                map.put((header.get(i)), cellValue);
+//                                break;
+//                            case BOOLEAN:
+//                                map.put(header.get(i), c.getBooleanCellValue());
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//                    } else {
+//                        map.put(header.get(i), "");
+//                    }
                 }
                 result.add(map);
             }
             countRow++;
         }
-        return result;
-    }
-
-    public static List<Map<String, Object>> filters(List<HashMap<String, Object>> data, Map<String, Object> filter){
-        List<Map<String, Object>> output = new ArrayList<>();
-
-        for (Map.Entry<String, Object> entry : filter.entrySet()) {
-            for (int i = 0; i < data.size(); i++) {
-                if (data.get(i).get(entry.getKey()).equals(String.valueOf(entry.getValue()))) {
-                    output.add(data.get(i));
-                }
-            }
+        Collection<Object[]> dp = new ArrayList<Object[]>();
+        for (Map<Object, Object> map : result) {
+            dp.add(new Object[]{map});
         }
-        return output;
+        return dp.iterator();
     }
-
-
-    public static void main(String[] args) throws IOException {
-
-//        String file = "src/test/resources/_data/demo.xlsx";
-//        String sheetName = "loginncc";
-//        List<HashMap<String, Object>> list = parseExcel(file, sheetName);
-//        Map<String, Object> filter = new HashMap<String, Object>() {{
-//            put("index", 1);
-//        }};
-//        List<Map<String, Object>> lists = filters(list, filter);
-//        System.out.println(lists);
-
-
-    }
-
+    //    public static List<Map<String, Object>> filters(List<HashMap<String, Object>> data, Map<String, Object> filter) {
+//        List<Map<String, Object>> output = new ArrayList<>();
+//
+//        for (Map.Entry<String, Object> entry : filter.entrySet()) {
+//            for (int i = 0; i < data.size(); i++) {
+//                if (data.get(i).get(entry.getKey()).equals(String.valueOf(entry.getValue()))) {
+//                    output.add(data.get(i));
+//                }
+//            }
+//        }
+//        return output;
+//    }
 }
+
+
+

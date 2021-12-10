@@ -12,6 +12,7 @@ public class LoginPage extends BasePage {
         fillField(Locator.Login.USERNAME,email);
         fillField(Locator.Login.PASSWORD,password);
         click(Locator.Login.BUTTON_LOGIN);
+        verifyLoginSuccess();
         return new HomePage(driver);
     }
     public void verifyLoginSuccess(){
