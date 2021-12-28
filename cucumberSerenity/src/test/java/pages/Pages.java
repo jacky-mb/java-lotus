@@ -6,11 +6,15 @@ import org.openqa.selenium.By;
 public class Pages {
 
     public static class Login{
-        public static Target USERNAME = Target.the("email").located(By.id("email"));
-        public static Target PASSWORD = Target.the("password").located(By.id("password"));
-        public static Target BUTTON_LOGIN = Target.the("Login button").located(By.xpath("//button[@type='submit']"));
+        public static By USERNAME = By.cssSelector("[name='fields[username]']");
+        public static By PASSWORD = By.cssSelector("[name='fields[password]']");
+        public static By BUTTON_LOGIN = By.cssSelector("button[type=submit]");
     }
-
+    public static class LoginTarget{
+        public static Target USERNAME = Target.the("user").located(By.cssSelector("[name='fields[username]']"));
+        public static Target PASSWORD = Target.the("password").located(By.cssSelector("[name='fields[password]']"));
+        public static Target BUTTON_LOGIN =Target.the("btn login").located(By.cssSelector("button[type=submit]"));
+    }
     public static class SignUp{
         public static Target FIRST_NAME = Target.the("name").located(By.name("first_name"));
         public static Target LAST_NAME = Target.the("lastname").located(By.name("last_name"));
